@@ -44,8 +44,8 @@ app.post("/pokemon", (req, res) =>{
     let maxID = Math.max(...ids)
 
     if (found != undefined){
-        res.status(400).send("This fruit already exists!")
-        console.log("This fruit already exists!")
+        res.status(400).send("This Pokemon already exists!")
+        console.log("This Pokemon already exists!")
 
     }else{
         pokeBody = check.english[0].toUpperCase() + check.english.slice(1).toLowerCase() 
