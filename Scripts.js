@@ -12,12 +12,12 @@ createForm.addEventListener("submit", createNewPokemon)
 
 async function fetchPokemonData(pokemon){
     try {
-        const repsData = await fetch(`https://mini-pokemon-api-pvwq.onrender.com/pokemon/${pokemon}`)
-        const repsImg = await fetch(`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/shiny/${pokemon.id}.png`)
+        const repsData = await fetch(`localhost:3000/pokemon/${pokemon}`)//`https://mini-pokemon-api-pvwq.onrender.com/pokemon/${pokemon}`)
+        //const repsImg = await fetch(`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/shiny/${pokemon.id}.png`)
     if (repsData.ok && repsImg.ok){
         const data = await repsData.json();
-        const imgData = await repsImg.json();
-        addPokemon(data, ImgData)
+        //const imgData = await repsImg.json();
+        addPokemon(data)//, imgData)
     }else{
         throw "Something has gone wrong with one of the API requests";
     }
@@ -34,7 +34,8 @@ function extractPokemon(e){
 }
 
 
-function addPokemon(pokemon, pokemonImg){
+function addPokemon(pokemon){//, pokemonImg){
+    /*
     const img = document.createElement("img");
     img.classList.add("pokemon");
     img.alt = pokemon.name.english;
@@ -42,7 +43,7 @@ function addPokemon(pokemon, pokemonImg){
 
     img.addEventListener("click", removePokemon, {once: true});
     pokeList.appendChild(img);
-
+    */
     const li = document.createElement("li")
     li.textContent = pokemon.name.english;
     li.addEventListener("click", removePokemon);
