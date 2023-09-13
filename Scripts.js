@@ -13,7 +13,7 @@ createForm.addEventListener("submit", createNewPokemon)
 async function fetchPokemonData(pokemon){
     try {
         const repsData = await fetch(`https://mini-pokemon-api-pvwq.onrender.com/pokemon/${pokemon}`)
-        const repsImg = await fetch(`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/shiny/{pokemon.id}.png`)
+        const repsImg = await fetch(`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/shiny/${pokemon.id}.png`)
     if (repsData.ok && repsImg.ok){
         const data = await repsData.json();
         const imgData = await repsImg.json();
